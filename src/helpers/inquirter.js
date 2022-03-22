@@ -44,7 +44,8 @@ const inquirerMenu = async () => {
   console.log("============================".green);
   console.log("   Seleccione una opción   ".green);
   console.log("============================\n".green);
-  return await inquirer.prompt(preguntas);
+  const { opcion } = await inquirer.prompt(preguntas);
+  return opcion;
 };
 
 const pausa = async () => {
@@ -53,6 +54,22 @@ const pausa = async () => {
       type: "input",
       name: "enter",
       message: `Presiona ${"ENTER".green} para continuar`,
+    },
+  ]);
+};
+
+const leerInput = async () => {
+  await inquirer.prompt([
+    {
+      type: "input",
+      name: "desc",
+      message,
+      validate(value) {
+        if (this.value.length === 0) {
+          return "Favor de ingresar un valor";
+        }
+        return true;
+      },
     },
   ]);
 };

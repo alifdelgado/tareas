@@ -3,11 +3,16 @@ const { inquirerMenu, pausa } = require("./helpers/inquirter");
 
 const main = async () => {
   let opt;
+  const tareas = new Tareas();
   do {
-    const { opcion } = await inquirerMenu();
-    console.log({ opcion });
-    // const tareas = new Tareas();
-    // tareas._listadoTareas[tarea.id] = tarea;
+    opt = await inquirerMenu();
+    switch (opt) {
+      case 1:
+        break;
+      case 2:
+        console.log(tareas._listado);
+        break;
+    }
     await pausa();
   } while (opt !== 0);
 };
