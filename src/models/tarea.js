@@ -1,10 +1,10 @@
 const uuid = require("uuid");
 
 class Tarea {
-  constructor(desc, completado) {
+  constructor(desc) {
     this.id = uuid.v4();
     this.desc = desc;
-    this.completado = completado;
+    this.completado = null;
   }
 }
 
